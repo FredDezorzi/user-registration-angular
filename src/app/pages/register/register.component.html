@@ -1,0 +1,65 @@
+<app-menu></app-menu>
+<br>
+<h1 class="display-6" >{{userId ?  'Edit' : 'Register'}}</h1>
+<hr>
+<br>
+
+<a routerLink="">
+  <button class="btn btn-dark mx-2">
+    <i class="bi bi-arrow-left-circle"></i> Back
+  </button>
+</a>
+<br>
+<p class="m-3">Fill in the user information:</p>
+
+<div class="container-fluid">
+    <form [formGroup]="userForm" (ngSubmit)="userId ? editUser(): insertUser()">
+      <div class="row">
+        <div class="col-13">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <span class="alert"
+              *ngIf="userForm.get('name')?.errors && (userForm.get('name')?.touched || userForm.get('name')?.dirty)">
+              *
+            </span>
+            <input id="name" type="text" class="form-control" placeholder="Ex: Maria da Silva do Nascimento" formControlName="name"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:
+              <span class="alert"
+                *ngIf="userForm.get('email')?.errors && (userForm.get('email')?.touched || userForm.get('email')?.dirty)">
+                * Invalid email
+              </span>
+            </label>
+            <input id="email" type="text" class="form-control" placeholder="Ex: angular@outlook.com" formControlName="email"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <span class="alert"
+              *ngIf="userForm.get('password')?.errors && (userForm.get('password')?.touched || userForm.get('password')?.dirty)">
+              *
+            </span>
+            <input id="password" type="password" class="form-control" placeholder="Ex: Ex3mpl3P4ssworD#" formControlName="password"/>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="birthDay" class="form-label">BirthDay:</label>
+            <span class="alert"
+              *ngIf="userForm.get('birthDay')?.errors && (userForm.get('birthDay')?.touched || userForm.get('birthDay')?.dirty)">
+              * Invalid date
+             </span>
+            <input #dateInput id="birthDay" type="text" class="form-control" placeholder="Ex: 01/01/2000" formControlName="birthDay"/>
+          </div>
+        </div>
+      </div>   
+      <button type="submit" [disabled]="!userForm.valid" class="btn btn-dark">
+        <i class="{{userId ?  'bi bi-pencil-square' : 'bi bi-person-fill-add'}}"></i>
+        {{userId ?  'Edit' : 'Register'}}
+      </button>
+    </form>
+</div>
