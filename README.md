@@ -79,7 +79,7 @@ If you have any questions or suggestions, please feel free to get in touch:
 
 - Name: Frederico Dezorzi
 - Email: fred.dezorzi@gmail.com
-- LinkedIn: Frederico Dezorzi
+- LinkedIn: [Frederico Dezorzi](https://www.linkedin.com/in/frederico-dezorzi-529518182/)
 
 
 
